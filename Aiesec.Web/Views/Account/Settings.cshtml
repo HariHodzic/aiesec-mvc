@@ -1,0 +1,80 @@
+﻿@model Aiesec.Data.Model.IdentityModel.ApplicationUser
+@{
+    Layout = "_Layout";
+}
+<div class="p-2">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Account</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">TODO</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <section class="row justify-content-start p-3">
+                <section class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input name="username" type="text" class="form-control rounded-0" id="username" disabled value="@Model.UserName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input name="email" type="text" class="form-control rounded-0" id="email" disabled asp-for="@Model.Email">
+                    </div>
+                    <hr>
+                    <h5>Change password</h5>
+                    <form id="passwordForm" ajax-post ajax-action="/Account/ChangePassword">
+                        <div class="mb-3">
+                            <input name="oldPassword" type="password" class="form-control rounded-0" id="oldPassword" autocomplete="off" placeholder="Old Password">
+                        </div>
+                        <div class="mb-3">
+                            <input name="newPassword" type="password" class="form-control rounded-0" id="newPassword" autocomplete="off" placeholder="New Password">
+                        </div>
+                        <div class="mb-3">
+                            <input name="confirmPassword" type="password" class="form-control rounded-0" id="confirmPassword" autocomplete="off" placeholder="Old Password">
+                        </div>
+                        <button id="btn1" class="btn btn-primary rounded-0">Change Password</button>
+                    </form>
+                </section>
+            </section>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Profile</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">TODO</div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script>
+      $("#passwordForm").validate({
+        rules: {
+          oldPassword: {
+              required: true,
+          },
+          newPassword: {
+             required: true,
+          },
+           confirmPassword: {
+              equalTo: "#newPassword",
+           }
+       },
+        messages: {
+            oldPassword: {
+                required: "Old password is required",
+            },
+           newPassword: {
+                required: "New password is required",
+           },
+           confirmPassword: {
+                equalTo: "Password mismatch",
+           }
+       }
+     });
+    </script>
+}

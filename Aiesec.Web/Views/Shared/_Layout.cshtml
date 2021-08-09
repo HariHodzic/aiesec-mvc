@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AIESEC BiH</title>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/limonte-sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/limonte-sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/css/simple-sidebar.css" rel="stylesheet">
+    <link href="~/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="text-dark bg-info" id="sidebar-wrapper">
+            <div class="sidebar-heading font-weight-bold bar align-self-center bg-secondary border-bottom text-light">Administration panel</div>
+            <div class="list-group list-group-flush bg-transparent">
+                <a class="list-group-item list-group-item-action font-weight-bold border-light bg-transparent">Members</a>
+                <a class="list-group-item list-group-item-action font-weight-bold border-light bg-transparent" asp-controller="LocalCommittee" asp-action="Index">Local committees</a>
+                <a class="list-group-item list-group-item-action font-weight-bold border-light bg-transparent" asp-controller="Office" asp-action="Index">Offices</a>
+                <a class="list-group-item list-group-item-action font-weight-bold border-light bg-transparent" asp-controller="FunctionalField" asp-action="Index">Functional fields</a>
+                <a class="list-group-item list-group-item-action font-weight-bold border-light bg-transparent" asp-controller="Report" asp-action="Index">Reports</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar bar bg-primary navbar-expand-lg border-bottom">
+                <button class="btn text-light btn-dark" id="menu-toggle">&#9776;</button>
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand title-bar text-lg-left text-light font-weight-bolder ml-3">AIESEC BiH </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-inline text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Chat
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Chat" asp-action="Index">Chat</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Chat" asp-action="Find">Find</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Chat" asp-action="Private">Private</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link d-inline text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Welcome @User.Identity?.Name
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Account" asp-action="Settings">Account Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                @* TODO: Fix this space between nawbar and h2
+                        <div class="w-100 d-flex flex-column align-items-center" style="height: 70px;">
+                        <partial name="_AlertBox" />
+                    </div>*@
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="layoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div id="modelDialog" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="modalBody" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            if ($("#menu-toggle").hasClass('btn text-dark btn-light')) {
+                $("#menu-toggle").removeClass('btn text-dark btn-light').toggleClass('btn text-light btn-dark')
+            }
+            else
+                $("#menu-toggle").removeClass('btn text-light btn-dark').toggleClass('btn text-dark btn-light')
+        });
+
+        function gettoken() {
+           var token = '@Html.AntiForgeryToken()';
+           token = $(token).val();
+           return token;
+        }
+
+         $(document.body).on('submit', '[ajax-post]', function (e) {
+            e.preventDefault();
+            const element = $("#passwordForm")
+            const data = $("form#passwordForm").serialize();
+            const url = element.attr("ajax-action");
+            $.post(url, data)
+            .done(function (data) {
+                element.trigger("reset");
+                let alert;
+                if (data.statusCode == 200) {
+                   alert =  $("#okAlert");
+                }
+                else if (data.statusCode == 400) {
+               alert = $("#errorAlert");
+                }
+                alert.removeClass("d-none");
+                alert.addClass("d-block");
+                alert.find("div.content").text(data.message);
+            });
+         });
+    </script>
+    <script src="~/site.js"></script>
+</body>
+</html>
+<style>
+</style>

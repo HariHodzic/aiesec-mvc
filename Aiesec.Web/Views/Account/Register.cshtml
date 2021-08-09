@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<section class="row justify-content-start p-3">
+    <section class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4">
+        <form asp-controller="Account" asp-action="Register">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input name="firstName" type="text" class="form-control rounded-0" id="firstName" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input name="lastName" type="text" class="form-control rounded-0" id="lastName" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input name="username" type="text" class="form-control rounded-0" id="username" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control rounded-0" id="email" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select class="form-control rounded-0" id="role" name="role" asp-items="@ViewBag.RoleSelectList"></select>
+            </div>
+            <button type="submit" class="btn btn-primary rounded-0">Register</button>
+            <button type="reset" class="btn btn-light rounded-0">Reset</button>
+        </form>
+    </section>
+</section>

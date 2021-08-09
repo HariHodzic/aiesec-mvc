@@ -1,0 +1,35 @@
+﻿@model Aiesec.Data.DTO.Request.LocalCommittee
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h4 class="text-center">Create local committee</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Insert">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EstablishmentDate" class="control-label"></label>
+                <input asp-for="EstablishmentDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" asp-format="{0:dd-MM-yyyy}" type="date" data-val="true" data-val-required="This is required field" />
+                <span asp-validation-for="EstablishmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">City</label>
+                <select asp-for="CityID" class="form-control" asp-items="@ViewBag.Cities" data-val="true" data-val-required="This is required field"></select>
+                <span asp-validation-for="CityID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

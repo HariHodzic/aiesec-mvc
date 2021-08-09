@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Aiesec.Data.Model.BusinessModel.Chat>
+@{
+    Layout = "_ChatLayout";
+}
+
+<div class="chat-body">
+   @foreach (var chat in Model)
+   {
+       <a class="room-button" asp-controller="Chat" asp-action="JoinRoom"
+          asp-route-id="@chat.Id">
+           @chat.Name
+       </a>
+   }
+</div>
+<div class="chat-input">
+    <input type="text">
+    <button>Send</button>
+</div>

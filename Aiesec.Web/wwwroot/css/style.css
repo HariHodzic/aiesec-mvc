@@ -1,0 +1,57 @@
+﻿.index-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    color:whitesmoke;
+    background-color:cornflowerblue;
+    border:1px solid white;
+}
+.index-text:hover {
+    background-color: #037ef3;
+    color:whitesmoke;
+}
+.bar{
+    height:65px !important;
+}
+.navbar-brand{
+    font-size:26px !important;
+}
+
+#sidebar-wrapper {
+    background-color: lightgray !important;
+}
+
+/*.away-from-top {
+    margin-top: 15vh !important;
+}*/
+
+/*ToolTip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*ToolTip End*/
+
+/*jQuery Validation error message style*/
+.error {
+    color: #dc3545 !important;
+}

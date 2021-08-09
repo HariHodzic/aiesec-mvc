@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Aiesec.Data.Model.IdentityModel.ApplicationUser>
+
+@{
+    Layout = "_Layout";
+}
+
+<h4>Start chatting with:</h4>
+<div class="list-group">
+    @foreach (var user in Model)
+    {
+        <a class="list-group-item list-group-item-action" asp-controller="Chat" asp-action="CreatePrivateRoom" asp-route-userId="@user.Id">
+                @user.UserName
+            </a>
+    }
+</div>

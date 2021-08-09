@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Aiesec.Data.DTO.Response.Report>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h3 class="text-center">Reports</h3>
+<p>
+    <a asp-controller="Report" asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</p>
+<table class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mandat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kvartal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Report" asp-action="DownloadFile" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mandat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kvartal)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" href="/Report/DownloadFile?id=@item.Id">Download</a>
+                    <a class="btn btn-outline-danger" ajax-request="delete" ajax-url="/Report/Remove?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

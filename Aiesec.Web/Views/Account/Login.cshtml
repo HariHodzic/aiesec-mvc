@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+    var returnUrl = @Context.Request.Query["returnurl"];
+    ViewBag.title = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="row justify-content-center away-from-top">
+    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 p-5 shadow m-5">
+        <form asp-controller="Account" asp-action="Login" method="post" asp-route-returnurl="@returnUrl">
+            <div class="mb-4">
+                <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="mb-4">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="mb-4 form-check">
+                <input type="checkbox" class="form-check-input" id="isPersistent" name="isPersistent" value="true">
+                <label class="form-check-label" for="isPersistent">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

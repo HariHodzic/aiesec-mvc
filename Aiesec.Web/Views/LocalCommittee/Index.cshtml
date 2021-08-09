@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Aiesec.Data.DTO.Response.LocalCommittee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h3 class="text-center">Local committees</h3>
+<p>
+    <a asp-controller="LocalCommittee" asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</p>
+<table class="table table-responsive-lg">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstablishmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Office)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.City.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstablishmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" id="detailsBtn" data-toggle="modal" modal-size="lg" data-target="#layoutModal" ajax-request='yes' ajax-url='/Office/PartialOfficesLC?id=@item.Id' ajax-result='modalBody'>Show offices</a>
+            </td>
+            <td class="btn-group-sm">
+                <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-outline-info" id="detailsBtn" data-toggle="modal" data-target="#layoutModal" ajax-request='yes' modal-size="sm" ajax-url='/LocalCommittee/DetailsPartial?id=@item.Id' ajax-result='modalBody'>Details</a>
+                <a class="btn btn-danger" ajax-request="delete" ajax-url="/LocalCommittee/Remove?id=@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

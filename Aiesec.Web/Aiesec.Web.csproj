@@ -1,0 +1,224 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aiesec.Data\Aiesec.Data.csproj" />
+    <ProjectReference Include="..\Aiesec.Repository\Aiesec.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\reports\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\.npmignore" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\bower.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\dist\jquery.serialize-object.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\HISTORY.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\jquery.serialize-object.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\LICENSE" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\package.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\README.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\integration\encode-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\integration\selector-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\lib\chai.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\lib\mocha.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\lib\mocha.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\requirejs-test.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\test.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\add-pair-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\add-pairs-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\pattern-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\plugin-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\serialize-json-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\form-serializer\test\unit\serialize-test.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\browser\signalr.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\browser\signalr.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\browser\signalr.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\browser\signalr.min.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\AbortController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\AbortController.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\browser-index.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\browser-index.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\DefaultHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\DefaultHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\EmptyNodeHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\EmptyNodeHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Errors.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Errors.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HandshakeProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HandshakeProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HttpConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HttpConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HubConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HubConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HubConnectionBuilder.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\HubConnectionBuilder.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IHttpConnectionOptions.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IHttpConnectionOptions.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IHubProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\IHubProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ILogger.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ILogger.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\index.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\index.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ITransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ITransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\JsonHubProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\JsonHubProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Loggers.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Loggers.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\LongPollingTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\LongPollingTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\NodeHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\NodeHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Polyfills.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Polyfills.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ServerSentEventsTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\ServerSentEventsTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Stream.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Stream.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\TextMessageFormat.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\TextMessageFormat.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Utils.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\Utils.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\WebSocketTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\WebSocketTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\XhrHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\cjs\XhrHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\AbortController.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\AbortController.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\AbortController.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\browser-index.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\browser-index.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\browser-index.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\DefaultHttpClient.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\DefaultHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\DefaultHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\EmptyNodeHttpClient.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\EmptyNodeHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\EmptyNodeHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Errors.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Errors.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Errors.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HandshakeProtocol.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HandshakeProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HandshakeProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpClient.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpConnection.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HttpConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnection.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnectionBuilder.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnectionBuilder.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\HubConnectionBuilder.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IConnection.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IConnection.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IConnection.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHttpConnectionOptions.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHttpConnectionOptions.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHttpConnectionOptions.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHubProtocol.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHubProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\IHubProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ILogger.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ILogger.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ILogger.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\index.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\index.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\index.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ITransport.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ITransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ITransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\JsonHubProtocol.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\JsonHubProtocol.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\JsonHubProtocol.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Loggers.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Loggers.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Loggers.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\LongPollingTransport.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\LongPollingTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\LongPollingTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\NodeHttpClient.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\NodeHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\NodeHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Polyfills.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Polyfills.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Polyfills.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ServerSentEventsTransport.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ServerSentEventsTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\ServerSentEventsTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Stream.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Stream.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Stream.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\TextMessageFormat.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\TextMessageFormat.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\TextMessageFormat.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Utils.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Utils.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\Utils.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\WebSocketTransport.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\WebSocketTransport.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\WebSocketTransport.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\XhrHttpClient.d.ts" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\XhrHttpClient.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\signalr\dist\esm\XhrHttpClient.js.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\adapters\http.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\adapters\README.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\adapters\xhr.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\axios.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\cancel\Cancel.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\cancel\CancelToken.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\cancel\isCancel.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\Axios.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\buildFullPath.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\createError.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\dispatchRequest.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\enhanceError.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\InterceptorManager.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\mergeConfig.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\README.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\settle.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\core\transformData.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\defaults.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\bind.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\buildURL.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\combineURLs.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\cookies.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\deprecatedMethod.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\isAbsoluteURL.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\isAxiosError.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\isURLSameOrigin.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\normalizeHeaderName.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\parseHeaders.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\README.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\helpers\spread.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\axios\lib\utils.js" />
+  </ItemGroup>
+
+</Project>

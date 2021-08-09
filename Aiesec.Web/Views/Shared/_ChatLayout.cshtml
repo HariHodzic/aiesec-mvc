@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>AIESEC | Chat</title>
+
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+<div class="navbar">
+
+</div>
+<div class="main">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @await Component.InvokeAsync("Room")
+    }
+    <div class="chat">
+        @RenderBody()
+    </div>
+</div>
+<div class="modal" id="createRoomModal">
+    <form asp-controller="Chat" asp-action="CreateRoom" class="modal-body">
+        <button type="button" class="close" onclick="closeModal()">X</button>
+        <header>Create Room</header>
+        <div>
+            <input name="name" type="text">
+        </div>
+        <footer>
+            <button type="submit">Create Chat</button>
+        </footer>
+    </form>
+</div>
+<script src="~/js/chat.js"></script>
+@await RenderSectionAsync("scripts", false)
+</body>
+</html>
